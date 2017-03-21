@@ -1,0 +1,17 @@
+C:\Git Latest\Elite.CRM\Elite.CRM.Plugins\obj\Debug\Elite.CRM.Plugins.csprojResolveAssemblyReference.cache
+C:\Git Latest\Elite.CRM\Elite.CRM.Plugins\obj\Debug\Elite.CRM.Plugins.dll
+C:\Git Latest\Elite.CRM\Elite.CRM.Plugins\obj\Debug\Elite.CRM.Plugins.pdb
+D:\New folder\Elite Plugin\Elite.CRM\Elite.CRM.Plugins\obj\Debug\Elite.CRM.Plugins.dll
+D:\New folder\Elite Plugin\Elite.CRM\Elite.CRM.Plugins\obj\Debug\Elite.CRM.Plugins.pdb
+C:\Elite Plugins\Elite.CRM\Elite.CRM.Plugins\obj\Debug\Elite.CRM.Plugins.dll
+C:\Elite Plugins\Elite.CRM\Elite.CRM.Plugins\obj\Debug\Elite.CRM.Plugins.pdb
+C:\Elite Plugins\Elite.CRM\Elite.CRM.Plugins\obj\Debug\Elite.CRM.Plugins.csprojResolveAssemblyReference.cache
+C:\Elite Plugin\Elite.CRM\Elite.CRM.Plugins\obj\Debug\Elite.CRM.Plugins.dll
+C:\Elite Plugin\Elite.CRM\Elite.CRM.Plugins\obj\Debug\Elite.CRM.Plugins.pdb
+D:\New folder\Elite Plugin\Elite.CRM\Elite.CRM.Plugins\obj\Debug\Elite.CRM.Plugins.csprojResolveAssemblyReference.cache
+C:\Elite Plugin\Elite.CRM\Elite.CRM.Plugins\obj\Debug\Elite.CRM.Plugins.csprojResolveAssemblyReference.cache
+D:\Test\Elite.CRM\Elite.CRM.Plugins\obj\Debug\Elite.CRM.Plugins.dll
+D:\Test\Elite.CRM\Elite.CRM.Plugins\obj\Debug\Elite.CRM.Plugins.pdb
+C:\Test Code\Elite.CRM\Elite.CRM.Plugins\obj\Debug\Elite.CRM.Plugins.dll
+C:\Test Code\Elite.CRM\Elite.CRM.Plugins\obj\Debug\Elite.CRM.Plugins.pdb
+D:\Test\Elite.CRM\Elite.CRM.Plugins\obj\Debug\Elite.CRM.Plugins.csprojResolveAssemblyReference.cache

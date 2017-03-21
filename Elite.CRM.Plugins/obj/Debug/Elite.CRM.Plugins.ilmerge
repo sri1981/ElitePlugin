@@ -1,0 +1,6 @@
+Elite.CRM.Plugins.dll
+CsvHelper.dll
+Microsoft.SharePoint.Client.dll
+Microsoft.SharePoint.Client.DocumentManagement.dll
+Microsoft.SharePoint.Client.Runtime.dll
+Microsoft.SharePoint.Client.Search.dll

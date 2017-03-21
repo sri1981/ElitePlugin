@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://postcodesoftware.co.uk/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://postcodesoftware.co.uk/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This web service provides access to 28.6 million UK addresses and 1.8 million postcodes in the postal address file (PAF®).&lt;br&gt;PAF® is the UK's most accurate and up to date address database.&lt;br&gt;&lt;br&gt;Before using this service, please purchase credits at http://www.postcodesoftware.net/buy.asp &lt;br&gt;&lt;br&gt;If you have any queries, please call us on 0845 83 82 666 or email support@postcodesoftware.co.uk.</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://postcodesoftware.co.uk/">
+      <s:element name="getAddress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="postcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAddressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAddressResult" type="tns:Address" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Address">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Town" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="County" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Postcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PremiseData" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorNumber" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getGeoData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="postcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGeoDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getGeoDataResult" type="tns:GeoData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GeoData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Longitude" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Latitude" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Easting" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Northing" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Postcode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorNumber" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getCredits">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCreditsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCreditsResult" type="tns:Account" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Account">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PAFBalance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PAFExpire" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POSTZONBalance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POSTZONExpire" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorNumber" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Address" nillable="true" type="tns:Address" />
+      <s:element name="GeoData" nillable="true" type="tns:GeoData" />
+      <s:element name="Account" nillable="true" type="tns:Account" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:getAddress" />
+  </wsdl:message>
+  <wsdl:message name="getAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:getAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGeoDataSoapIn">
+    <wsdl:part name="parameters" element="tns:getGeoData" />
+  </wsdl:message>
+  <wsdl:message name="getGeoDataSoapOut">
+    <wsdl:part name="parameters" element="tns:getGeoDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCreditsSoapIn">
+    <wsdl:part name="parameters" element="tns:getCredits" />
+  </wsdl:message>
+  <wsdl:message name="getCreditsSoapOut">
+    <wsdl:part name="parameters" element="tns:getCreditsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAddressHttpGetIn">
+    <wsdl:part name="account" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="postcode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getAddressHttpGetOut">
+    <wsdl:part name="Body" element="tns:Address" />
+  </wsdl:message>
+  <wsdl:message name="getGeoDataHttpGetIn">
+    <wsdl:part name="account" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="postcode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getGeoDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:GeoData" />
+  </wsdl:message>
+  <wsdl:message name="getCreditsHttpGetIn">
+    <wsdl:part name="account" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getCreditsHttpGetOut">
+    <wsdl:part name="Body" element="tns:Account" />
+  </wsdl:message>
+  <wsdl:message name="getAddressHttpPostIn">
+    <wsdl:part name="account" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="postcode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getAddressHttpPostOut">
+    <wsdl:part name="Body" element="tns:Address" />
+  </wsdl:message>
+  <wsdl:message name="getGeoDataHttpPostIn">
+    <wsdl:part name="account" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="postcode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getGeoDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:GeoData" />
+  </wsdl:message>
+  <wsdl:message name="getCreditsHttpPostIn">
+    <wsdl:part name="account" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getCreditsHttpPostOut">
+    <wsdl:part name="Body" element="tns:Account" />
+  </wsdl:message>
+  <wsdl:portType name="LookupSoap">
+    <wsdl:operation name="getAddress">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Queries the PAF® database, returning the address and premise information matching the postcode.&lt;br&gt;This service covers England, Northern Ireland, Scotland and Wales.</wsdl:documentation>
+      <wsdl:input message="tns:getAddressSoapIn" />
+      <wsdl:output message="tns:getAddressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGeoData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Queries the Ordnance Survey (OS) geocode database, returning the Easting &amp; Northings / Longitude &amp; Latitude of the postcode.&lt;br&gt;This service provides a precise geographical location for each postcode.&lt;br&gt;This service covers England, Scotland and Wales.</wsdl:documentation>
+      <wsdl:input message="tns:getGeoDataSoapIn" />
+      <wsdl:output message="tns:getGeoDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCredits">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the current credit balances of the account.</wsdl:documentation>
+      <wsdl:input message="tns:getCreditsSoapIn" />
+      <wsdl:output message="tns:getCreditsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="LookupHttpGet">
+    <wsdl:operation name="getAddress">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Queries the PAF® database, returning the address and premise information matching the postcode.&lt;br&gt;This service covers England, Northern Ireland, Scotland and Wales.</wsdl:documentation>
+      <wsdl:input message="tns:getAddressHttpGetIn" />
+      <wsdl:output message="tns:getAddressHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGeoData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Queries the Ordnance Survey (OS) geocode database, returning the Easting &amp; Northings / Longitude &amp; Latitude of the postcode.&lt;br&gt;This service provides a precise geographical location for each postcode.&lt;br&gt;This service covers England, Scotland and Wales.</wsdl:documentation>
+      <wsdl:input message="tns:getGeoDataHttpGetIn" />
+      <wsdl:output message="tns:getGeoDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCredits">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the current credit balances of the account.</wsdl:documentation>
+      <wsdl:input message="tns:getCreditsHttpGetIn" />
+      <wsdl:output message="tns:getCreditsHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="LookupHttpPost">
+    <wsdl:operation name="getAddress">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Queries the PAF® database, returning the address and premise information matching the postcode.&lt;br&gt;This service covers England, Northern Ireland, Scotland and Wales.</wsdl:documentation>
+      <wsdl:input message="tns:getAddressHttpPostIn" />
+      <wsdl:output message="tns:getAddressHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGeoData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Queries the Ordnance Survey (OS) geocode database, returning the Easting &amp; Northings / Longitude &amp; Latitude of the postcode.&lt;br&gt;This service provides a precise geographical location for each postcode.&lt;br&gt;This service covers England, Scotland and Wales.</wsdl:documentation>
+      <wsdl:input message="tns:getGeoDataHttpPostIn" />
+      <wsdl:output message="tns:getGeoDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCredits">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the current credit balances of the account.</wsdl:documentation>
+      <wsdl:input message="tns:getCreditsHttpPostIn" />
+      <wsdl:output message="tns:getCreditsHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LookupSoap" type="tns:LookupSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getAddress">
+      <soap:operation soapAction="http://postcodesoftware.co.uk/getAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGeoData">
+      <soap:operation soapAction="http://postcodesoftware.co.uk/getGeoData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCredits">
+      <soap:operation soapAction="http://postcodesoftware.co.uk/getCredits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LookupSoap12" type="tns:LookupSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getAddress">
+      <soap12:operation soapAction="http://postcodesoftware.co.uk/getAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGeoData">
+      <soap12:operation soapAction="http://postcodesoftware.co.uk/getGeoData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCredits">
+      <soap12:operation soapAction="http://postcodesoftware.co.uk/getCredits" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LookupHttpGet" type="tns:LookupHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="getAddress">
+      <http:operation location="/getAddress" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGeoData">
+      <http:operation location="/getGeoData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCredits">
+      <http:operation location="/getCredits" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LookupHttpPost" type="tns:LookupHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="getAddress">
+      <http:operation location="/getAddress" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGeoData">
+      <http:operation location="/getGeoData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCredits">
+      <http:operation location="/getCredits" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Lookup">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This web service provides access to 28.6 million UK addresses and 1.8 million postcodes in the postal address file (PAF®).&lt;br&gt;PAF® is the UK's most accurate and up to date address database.&lt;br&gt;&lt;br&gt;Before using this service, please purchase credits at http://www.postcodesoftware.net/buy.asp &lt;br&gt;&lt;br&gt;If you have any queries, please call us on 0845 83 82 666 or email support@postcodesoftware.co.uk.</wsdl:documentation>
+    <wsdl:port name="LookupSoap" binding="tns:LookupSoap">
+      <soap:address location="http://ws1.postcodesoftware.co.uk/lookup.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LookupSoap12" binding="tns:LookupSoap12">
+      <soap12:address location="http://ws1.postcodesoftware.co.uk/lookup.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LookupHttpGet" binding="tns:LookupHttpGet">
+      <http:address location="http://ws1.postcodesoftware.co.uk/lookup.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LookupHttpPost" binding="tns:LookupHttpPost">
+      <http:address location="http://ws1.postcodesoftware.co.uk/lookup.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

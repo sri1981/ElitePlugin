@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\MSBuild.ILMerge.Task.1.0.2\build\MSBuild.ILMerge.Task.props" Condition="Exists('..\packages\MSBuild.ILMerge.Task.1.0.2\build\MSBuild.ILMerge.Task.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE5B3F6F-B256-4403-8C4A-1E2D94EB1FBC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Elite.CRM.Plugins</RootNamespace>
+    <AssemblyName>Elite.CRM.Plugins</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>431ffbc9</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CsvHelper">
+      <HintPath>..\packages\CsvHelper.2.13.5.0\lib\net40-client\CsvHelper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Crm.Sdk.Proxy">
+      <HintPath>..\lib\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Sharepoint.1.0.1\lib\net40\Microsoft.SharePoint.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.DocumentManagement, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Sharepoint.1.0.1\lib\net40\Microsoft.SharePoint.Client.DocumentManagement.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Sharepoint.1.0.1\lib\net40\Microsoft.SharePoint.Client.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Sharepoint.1.0.1\lib\net40\Microsoft.SharePoint.Client.Search.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Sdk">
+      <HintPath>..\lib\Microsoft.Xrm.Sdk.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AgreementPlugin.cs" />
+    <Compile Include="ApprovalPlugin.cs" />
+    <Compile Include="AutoNamingNumbering\AddressNamePlugin.cs" />
+    <Compile Include="AutoNamingNumbering\AutoCodes.cs" />
+    <Compile Include="AutoNamingNumbering\AutoNumbering.cs" />
+    <Compile Include="AutoNamingNumbering\RiskEntityIdentifier.cs" />
+    <Compile Include="AutoNamingNumbering\RolesAutoNumbering.cs" />
+    <Compile Include="BasePlugin.cs" />
+    <Compile Include="AutoNamingNumbering\BordereauAutoName.cs" />
+    <Compile Include="BaseWorkflowActivity.cs" />
+    <Compile Include="BordereauImport\BordereauError.cs" />
+    <Compile Include="BordereauImport\BordereauException.cs" />
+    <Compile Include="BordereauImport\BordereauExtensions.cs" />
+    <Compile Include="BordereauImport\ErrorFileWriter.cs" />
+    <Compile Include="BordereauImport\MappedAttribute.cs" />
+    <Compile Include="BordereauImport\MappedClaim.cs" />
+    <Compile Include="BordereauImport\MappedRow.cs" />
+    <Compile Include="BordereauImport\PolicyMapper.cs" />
+    <Compile Include="BordereauProcessMapper.cs" />
+    <Compile Include="ClaimPaymentPlugin.cs" />
+    <Compile Include="ClaimPlugin.cs" />
+    <Compile Include="ClaimRecoveryPlugin.cs" />
+    <Compile Include="ClaimTransaction.cs" />
+    <Compile Include="ContactDuplicateCheckPlugin.cs" />
+    <Compile Include="Entities\Agreement.cs" />
+    <Compile Include="Entities\Approval.cs" />
+    <Compile Include="Entities\BordereauImportRow.cs" />
+    <Compile Include="Entities\BordereauProcess.cs" />
+    <Compile Include="Entities\BordereauTemplate.cs" />
+    <Compile Include="Entities\Claim.cs" />
+    <Compile Include="Entities\BordereauTemplateColumn.cs" />
+    <Compile Include="Entities\ClaimAttributes.cs" />
+    <Compile Include="Entities\ClaimPayment.cs" />
+    <Compile Include="Entities\ClaimRecovery.cs" />
+    <Compile Include="Entities\Commission.cs" />
+    <Compile Include="Entities\Cover.cs" />
+    <Compile Include="Entities\EntityWrapper.cs" />
+    <Compile Include="Entities\InsuredCover.cs" />
+    <Compile Include="Entities\InsuredRisk.cs" />
+    <Compile Include="Entities\Numbering.cs" />
+    <Compile Include="Entities\Opportunity.cs" />
+    <Compile Include="Entities\OptionSets.cs" />
+    <Compile Include="Entities\Policy.cs" />
+    <Compile Include="Entities\PolicyVersion.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\ReinsuranceContract.cs" />
+    <Compile Include="Entities\ReinsuranceSection.cs" />
+    <Compile Include="Entities\Risk.cs" />
+    <Compile Include="Entities\RiskClass.cs" />
+    <Compile Include="Entities\Tax.cs" />
+    <Compile Include="ErrorHandling\ThrowIf.cs" />
+    <Compile Include="Extensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Meta\EntityMetaCache.cs" />
+    <Compile Include="OpportunityPlugin.cs" />
+    <Compile Include="PolicyPlugin.cs" />
+    <Compile Include="PostCodePlugin.cs" />
+    <Compile Include="PremiumCalculation\Definitions.cs" />
+    <Compile Include="PremiumCalculation\Extensions.cs" />
+    <Compile Include="PremiumCalculation\PolicyPremiumCalculator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reinsurance\ReinsurancePlugin.cs" />
+    <Compile Include="Service References\UkPostalCodeService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SharePoint\SharePointClient.cs" />
+    <Compile Include="TransactionPlugin.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="__PluginTemplate.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="ILMerge.props" />
+    <None Include="Service References\UkPostalCodeService\Elite.CRM.Plugins.UkPostalCodeService.Account.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UkPostalCodeService\Elite.CRM.Plugins.UkPostalCodeService.Address.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UkPostalCodeService\Elite.CRM.Plugins.UkPostalCodeService.GeoData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UkPostalCodeService\lookup.wsdl" />
+    <None Include="key.snk" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UkPostalCodeService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\UkPostalCodeService\configuration.svcinfo" />
+    <None Include="Service References\UkPostalCodeService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\UkPostalCodeService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ILMergeOrder.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MSBuild.ILMerge.Task.1.0.2\build\MSBuild.ILMerge.Task.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuild.ILMerge.Task.1.0.2\build\MSBuild.ILMerge.Task.props'))" />
+    <Error Condition="!Exists('..\packages\MSBuild.ILMerge.Task.1.0.2\build\MSBuild.ILMerge.Task.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuild.ILMerge.Task.1.0.2\build\MSBuild.ILMerge.Task.targets'))" />
+  </Target>
+  <Import Project="..\packages\MSBuild.ILMerge.Task.1.0.2\build\MSBuild.ILMerge.Task.targets" Condition="Exists('..\packages\MSBuild.ILMerge.Task.1.0.2\build\MSBuild.ILMerge.Task.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
